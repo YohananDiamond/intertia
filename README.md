@@ -1,9 +1,11 @@
-# intertia
+# [intertia](https://yohanandiamond.github.io/intertia)
 
 A simple one-file JS library for basic HTML slides.
 
 Currently a heavy WIP but I don't intend to make it feature full, so the
 concept is already almost done.
+
+[Click here for an almost-decent demo.](https://yohanandiamond.github.io/intertia)
 
 ## Installation
 
@@ -16,12 +18,12 @@ concept is already almost done.
   ```html
   <script src="intertia.js"></script>
   <script>
-    window.addEventListener("load", () => {
-        intertia.prepare({
-            slides_div_id: "section-slides",
-            buttons_div_id: "buttons",
-        });
-    });
+      window.addEventListener("load", () => {
+          intertia.prepare({
+              slides_div_id: "section-slides",
+              buttons_div_id: "buttons",
+          });
+      });
   </script>
   ```
 

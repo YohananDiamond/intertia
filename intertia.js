@@ -2,8 +2,6 @@
 
 let intertia = {};
 intertia.prepare = ({slides_div_id, buttons_div_id}) => {
-    // TODO: a way to change slides with the arrow keys
-
     let sec_slides = document.getElementById(slides_div_id);
     let sec_btn = document.getElementById(buttons_div_id);
 
@@ -58,7 +56,3 @@ intertia.prepare = ({slides_div_id, buttons_div_id}) => {
         }
     });
 };
-
-// TODO: make a printable-to-PDF mode
-// TODO: check if this runs on 2009 chrome (PLEASE)
-// TODO: add a buncha code injection support for optional extra features... or would this complicate the code

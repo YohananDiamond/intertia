@@ -1,0 +1,4 @@
+* Printable-to-PDF mode, just in case I want to make a PDF out of it
+* Check if this runs on 2009 chrome
+* Potentially: add code injection suport for optional customization and extra features (or would this complicate the code? Let's see.)
+* Semi-responsive UI so the slides aren't nearly-unreadable on phones
