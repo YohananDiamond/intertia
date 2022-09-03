@@ -1,0 +1,28 @@
+<!-- TODO: https://www.w3schools.com/howto/howto_js_tabs.asp -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="slides.js"></script>
+        <script>
+            window.addEventListener("load", () => {
+                slides.prepare({
+                    slides_div_id: "section-slides",
+                    buttons_div_id: "buttons",
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="buttons">
+        </div>
+        <div id="section-slides">
+            <div class="slide" data-slide-title="Super mario bros 3">
+                <p>hello, my bame is 5555555555</p>
+            </div>
+            <div class="slide" data-slide-title="ajfo">
+                <p>wahoo 9</p>
+            </div>
+        </div>
+    </body>
+</html>
