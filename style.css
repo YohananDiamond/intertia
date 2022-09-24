@@ -1,0 +1,35 @@
+:root {
+    --color-bg: #FFFFFF;
+
+    --color-btn: #EEEEEE;
+    --color-btn-hover: #EEDDDD;
+    --color-btn-selected: #DDDDEE;
+}
+
+div#buttons {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+div#buttons div.slide-button {
+    border: none;
+    padding: 1em 2em;
+    margin: 0em 0.2em;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+
+    background-color: var(--color-btn);
+    transition: background-color 0.1s;
+
+    cursor: pointer;
+}
+
+div#buttons div.slide-button[data-selected="true"] {
+    background-color: var(--color-btn-selected);
+}
+
+div#buttons div.slide-button:hover {
+    background-color: var(--color-btn-hover);
+}

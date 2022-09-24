@@ -9,11 +9,21 @@ intertia.prepare = ({slides_div_id, buttons_div_id}) => {
     let buttons_list = [];
 
     let selectSlide = (idx) => {
+        for (let button of buttons_list) {
+            button.setAttribute("data-selected", "false");
+        }
+
         for (let el2 of sec_slides.children) {
             el2.style.display = "none";
         }
 
         elements_list[idx].style.display = "";
+
+        let button_current = buttons_list[idx];
+        button_current.setAttribute("data-selected", "true");
+        button_current.scrollIntoView({
+            behavior: "smooth",
+        });
     };
 
     let current_slide = 0;
@@ -26,8 +36,10 @@ intertia.prepare = ({slides_div_id, buttons_div_id}) => {
             elements_list.push(element);
 
             const _counter_copy = counter;
-            let button = document.createElement("button");
+            let button = document.createElement("div");
+            button.classList = "slide-button";
             button.innerText = title;
+            button.setAttribute("data-selected", "false");
             button.addEventListener("click", () => {
                 current_slide = _counter_copy;
                 selectSlide(_counter_copy);
