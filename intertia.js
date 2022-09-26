@@ -83,7 +83,7 @@ intertia.prepare = ({main_div_id}) => {
     for (const [text, action] of Object.entries({"<-": previousSlide, "->": nextSlide}))
     {
         let button = document.createElement("div");
-        button.classList = "intertia-button";
+        button.classList = "intertia-button misc-unselectable";
         button.innerText = text;
         button.addEventListener("click", action);
         sec_btn_mobile.appendChild(button);

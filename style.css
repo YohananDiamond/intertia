@@ -47,16 +47,23 @@ div.intertia-slides-section {
 }
 
 div.intertia-mobile-buttons-section {
-    display: none;
+    visibility: collapse;
     /* flex-grow: 0; */
 
     position: fixed;
     bottom: 1em;
 }
 
-/* TODO: I don't think only the width will help with this... maybe W-H ratio?) */
-@media (max-width: 768px) {
+.misc-unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Weird workaround for mobile devices */
+@media (orientation: portrait) or (hover: none) {
     div.intertia-mobile-buttons-section {
-        display: block; /* TODO: uhh */
+        visibility: visible;
     }
 }
