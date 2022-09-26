@@ -6,13 +6,20 @@
     --color-btn-selected: #DDDDEE;
 }
 
-div#buttons {
+div.intertia-main-section {
+    display: flex;
+    flex-direction: column;
+}
+
+div.intertia-buttons-section {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+
+    flex-grow: 0;
 }
 
-div#buttons div.slide-button {
+div.intertia-button {
     border: none;
     padding: 1em 2em;
     margin: 0em 0.2em;
@@ -26,10 +33,30 @@ div#buttons div.slide-button {
     cursor: pointer;
 }
 
-div#buttons div.slide-button[data-selected="true"] {
+div.intertia-button[data-selected="true"] {
     background-color: var(--color-btn-selected);
 }
 
-div#buttons div.slide-button:hover {
+div.intertia-button:hover {
     background-color: var(--color-btn-hover);
+}
+
+div.intertia-slides-section {
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+div.intertia-mobile-buttons-section {
+    display: none;
+    /* flex-grow: 0; */
+
+    position: fixed;
+    bottom: 1em;
+}
+
+/* TODO: I don't think only the width will help with this... maybe W-H ratio?) */
+@media (max-width: 768px) {
+    div.intertia-mobile-buttons-section {
+        display: block; /* TODO: uhh */
+    }
 }

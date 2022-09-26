@@ -1,9 +1,21 @@
 'use strict';
 
+// TODO: make button divs pinned to top and bottom
+
 let intertia = {};
-intertia.prepare = ({slides_div_id, buttons_div_id}) => {
-    let sec_slides = document.getElementById(slides_div_id);
-    let sec_btn = document.getElementById(buttons_div_id);
+intertia.prepare = ({main_div_id}) => {
+    let main_div = document.getElementById(main_div_id);
+    main_div.classList += " intertia-main-section";
+
+    let sec_slides = main_div.querySelector(".intertia-slides-section");
+
+    let sec_btn = document.createElement("div");
+    sec_btn.classList = "intertia-buttons-section";
+    main_div.insertBefore(sec_btn, sec_slides);
+
+    let sec_btn_mobile = document.createElement("div");
+    sec_btn_mobile.classList = "intertia-mobile-buttons-section";
+    main_div.appendChild(sec_btn_mobile);
 
     let elements_list = [];
     let buttons_list = [];
@@ -37,7 +49,7 @@ intertia.prepare = ({slides_div_id, buttons_div_id}) => {
 
             const _counter_copy = counter;
             let button = document.createElement("div");
-            button.classList = "slide-button";
+            button.classList = "intertia-button";
             button.innerText = title;
             button.setAttribute("data-selected", "false");
             button.addEventListener("click", () => {
@@ -54,17 +66,35 @@ intertia.prepare = ({slides_div_id, buttons_div_id}) => {
 
     selectSlide(current_slide);
 
+    let nextSlide = () => {
+        if (current_slide < elements_list.length - 1) {
+            current_slide += 1;
+            selectSlide(current_slide);
+        }
+    };
+    let previousSlide = () => {
+        if (current_slide > 0) {
+            current_slide -= 1;
+            selectSlide(current_slide);
+        }
+    };
+
+    /* Mobile buttons */
+    for (const [text, action] of Object.entries({"<-": previousSlide, "->": nextSlide}))
+    {
+        let button = document.createElement("div");
+        button.classList = "intertia-button";
+        button.innerText = text;
+        button.addEventListener("click", action);
+        sec_btn_mobile.appendChild(button);
+    }
+
+    /* Keypresses */
     window.addEventListener("keydown", (ev) => {
-        if (ev.key == "ArrowRight") {
-            if (current_slide < elements_list.length - 1) {
-                current_slide += 1;
-                selectSlide(current_slide);
-            }
-        } else if (ev.key == "ArrowLeft") {
-            if (current_slide > 0) {
-                current_slide -= 1;
-                selectSlide(current_slide);
-            }
+        if (ev.key == "ArrowRight" || ev.key == "j") {
+            nextSlide();
+        } else if (ev.key == "ArrowLeft" | ev.key == "k") {
+            previousSlide();
         }
     });
 };
