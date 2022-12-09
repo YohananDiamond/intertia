@@ -11,6 +11,10 @@ div.intertia-main-section {
     flex-direction: column;
 }
 
+div.intertia-slide-hidden {
+    display: none;
+}
+
 div.intertia-buttons-section {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -65,5 +69,25 @@ div.intertia-mobile-buttons-section {
 @media (orientation: portrait) or (hover: none) {
     div.intertia-mobile-buttons-section {
         visibility: visible;
+    }
+}
+
+div.intertia-slide {
+    overflow: hidden;
+    page-break-before: always;
+}
+
+@media print {
+    @page {
+        size: A4;
+        size: landscape;
+    }
+
+    div.intertia-slide-hidden {
+        display: block;
+    }
+
+    div.intertia-buttons-section, div.intertia-mobile-buttons-section {
+        visibility: collapse;
     }
 }

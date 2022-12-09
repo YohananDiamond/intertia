@@ -26,10 +26,10 @@ intertia.prepare = ({main_div_id}) => {
         }
 
         for (let el2 of sec_slides.children) {
-            el2.style.display = "none";
+            el2.classList.add("intertia-slide-hidden");
         }
 
-        elements_list[idx].style.display = "";
+        elements_list[idx].classList.remove("intertia-slide-hidden");
 
         let button_current = buttons_list[idx];
         button_current.setAttribute("data-selected", "true");
@@ -42,7 +42,7 @@ intertia.prepare = ({main_div_id}) => {
 
     let counter = 0;
     for (let element of sec_slides.children) {
-        if (element.classList.contains("slide")) {
+        if (element.classList.contains("intertia-slide")) {
             let title = element.getAttribute("data-slide-title");
             element.setAttribute("data-slide-index", counter);
             elements_list.push(element);
